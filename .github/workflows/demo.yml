@@ -8,30 +8,34 @@ on:
   pull_request:  
     branches: [main, dev]
   schedule:
-    - cron:  "*/1 * * * *" 
-
+    - cron: "*/1 * * * *"
 
 jobs:
-   
+
   setup_job:
-    runs-on: ubuntu-latest  # can be macos-latest, windows-latest
+    runs-on: ubuntu-latest
     steps:
-        - name: Checkout repo
-          uses: action/checkout@v3
-        - name: create file
-          run: touch github-action.txt
-        - name: print hello world
-          run: echo Hello world
-        - name: display readme file
-          run: cat README.md
-         
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: create file
+        run: touch github-action.txt
+
+      - name: print hello world
+        run: echo Hello world
+
+      - name: display readme file
+        run: cat README.md
+
   build_job:
     runs-on: windows-latest
     steps:
-        - name: display hello
-          run: echo hello
-  deploy_job: 
+      - name: display hello
+        run: echo hello
+
+  deploy_job:
     runs-on: macos-latest
     steps:
-        - run: echo hellow mac
+      - run: echo hello mac
+
             
