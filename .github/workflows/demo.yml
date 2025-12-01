@@ -21,7 +21,7 @@ jobs:
       - name: create file
         run: |
              touch github-action.txt
-             echo from first job > github-action.txt
+             echo "from first job" > github-action.txt
              ls -la
              echo Hello World
              cat README.md
@@ -41,7 +41,7 @@ jobs:
         run: echo hello
       - uses: actions/download-artifact@v4
         with:
-          name: github-action.txt  
+          name: my-file
 
       - name: Display github-action.txt
         run: cat github-action.txt  
